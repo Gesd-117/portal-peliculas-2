@@ -1,0 +1,21 @@
+=================================
+API Rest Peliculas themoviedb.org
+=================================
+
+API Genero peliculas:
+=====================
+https://api.themoviedb.org/3/genre/movie/list?api_key=ecbcdcf9044928d12b179d9153f5a269&language=es-VE
+
+API Genero peliculas TV:
+========================
+https://api.themoviedb.org/3/genre/tv/list?api_key=ecbcdcf9044928d12b179d9153f5a269&language=es-VE
+
+API peliculas de cine:
+======================
+https://api.themoviedb.org/3/movie/popular?api_key=ecbcdcf9044928d12b179d9153f5a269&language=es-VE&with_genres=28&page=2
+
+https://api.themoviedb.org/3/discover/movie?api_key=ecbcdcf9044928d12b179d9153f5a269&with_genres=99
+
+API peliculas de TV:
+====================
+https://api.themoviedb.org/3/tv/popular?api_key=ecbcdcf9044928d12b179d9153f5a269&language=es-VE&with_genres=28&page=2

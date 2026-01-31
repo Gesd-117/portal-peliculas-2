@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load my_filter %}
+{% load static %}
+
+{% block titulo %} 
+    {{ titulo }}
+{% endblock titulo %}
+    
+{% block contenido %}
+    {%include 'menu.html'%}
+    <div class="container text-center"> <!--Container fluid para quitar los margin (Lineas anaranjadas de separacion)--> <!--Ctrl + Espacio para hacer cambios rapidos de seleccion-->
+        <div class="row my-4"> 
+               
+                <h1 class="text-center" >{{ encabezado }}</h1>
+
+                <div>     
+                    <a href="{% url 'anterior' pagina_actual %}" class="btn btn-light mx-4"> Anterior </a>
+                    <label class="border border-light p-3 h5 rounded-2">{{ pagina_actual }}</label>
+                    <a href="{% url 'siguiente' pagina_actual %}" class="btn btn-light mx-4">   Siguiente </a>  
+                </div>
+                
+                {% for item in peliculas %}
+                <div class="col col-3 mb-4">
+                    <div class="card h-100">
+                        <div class="w-100 h-100">
+                            <img src="{{ images }}{{ item.poster_path }}" class="card-img-top card-img" alt="{{ original_title }}">
+                        </div>
+
+                        <div class="card-body">
+                            <h5 class="card-title">{{ item.title | upper}}</h5>
+
+                            
+                            {% if item.release_date %}
+                                <p class="card-text">Fecha de lanzamiento: {{ item.release_date | str_to_date:"%Y-%m-%d" | date:"d-m-Y" }}</p>
+                            {% else %}
+                                <p class="card-text">Fecha de lanzamiento: N/A</p>
+                                {% endif %}
+                                <p class="card-text">Popularidad: {{ item.popularity }}</p>
+                            
+                        </div>
+                        <!---<a href="#" class="btn btn-primary">Ver más...</a>-->
+                        <div class="card-footer">
+                            {%include 'modal.html'%}
+                        </div>
+                    </div>
+                </div>
+
+
+                
+        {% endfor %}
+
+        </div>  
+    </div>
+{% endblock contenido %}
+    
+<!-- Lo que coloque aqui se va para la base -->
