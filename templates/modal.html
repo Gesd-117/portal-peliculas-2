@@ -1,9 +1,9 @@
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#moviemodal{{ item.id }}">
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal{{ forloop.counter }}">
     Ver mas...
 </button>
 <!-- Modal -->
-<div class="modal fade" id="moviemodal{{ item.id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modal{{ forloop.counter }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
@@ -12,6 +12,10 @@
             </div>
             <div class="modal-body">
                 {{ item.overview }}
+            </div>
+            <div class="border border-light rounded-2 mx-2">
+                <span class="mx-1">Promedio de votos: {{ item.vote_average | floatformat:2 }}/10</span>
+                <span>Recuento de votos: {{ item.vote_count }}</span>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
